@@ -10,4 +10,6 @@
   <%= f.submit "Login" %>
 <% end %>
 
+<% if !logged_in? %>
 <%= link_to "no account? sign up!", new_user_url %>
+<% end %>
