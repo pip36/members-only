@@ -16,7 +16,7 @@
   <% end %>
 
   <% if logged_in? && post.user_id == current_user.id %>
-    <%= link_to "delete", post, method: :delete, confirm: "Are you sure?" %>
+    <%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
   <p> ----------------------------------------------------------- </p>
 <% end %>
