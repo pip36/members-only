@@ -9,16 +9,26 @@
   </head>
 
   <body>
-    <%= link_to "View All Posts", posts_url %>
+    <header>
+      <ul class="left">
+        <li> <h1> Members Only! </h1> </li>
+        <li> <%= link_to "See what members are saying...", posts_url %> </li>
+      </ul>
 
-    <% if logged_in? %>
-      <%= link_to "Profile", current_user %>
-      <%= "You are logged in as #{current_user.name}" %>
-      <%= link_to "Log Out", logout_path, method: :delete %>
-    <% end %>
-    <% flash.each do |name, message| %>
-      <div class="<%=name%>"> <%= message %> </div>
-    <% end %>
-    <%= yield %>
+      <% if logged_in? %>
+      <ul class="right">
+        <li> <%= "You are logged in as #{current_user.name}!" %> </li>
+        <li>  <%= link_to "Profile", current_user %> </li>
+        <li> <%= link_to "Log Out", logout_path, method: :delete %> </li>
+      </ul>
+      <% end %>
+    </header>
+    <div class="main-container">
+      <% flash.each do |name, message| %>
+        <div class="<%=name%>"> <%= message %> </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

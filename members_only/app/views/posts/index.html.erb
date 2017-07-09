@@ -1,9 +1,9 @@
 <%= link_to "home", root_url %>
-<h1> All Posts </h1>
+<h2> All Posts </h2>
 
 
 <% @posts.reverse_each do |post| %>
-
+<div class="post">
   <%= post.name %>
   <br>
   <%= post.body %>
@@ -18,5 +18,6 @@
   <% if logged_in? && post.user_id == current_user.id %>
     <%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
-  <p> ----------------------------------------------------------- </p>
+
+</div>
 <% end %>
